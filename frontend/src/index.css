@@ -1,0 +1,620 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap');
+
+/* ─── Variables Vanguard v2 ────────────────────────── */
+:root {
+    --bg-deep: #020408;
+    --acc-blue: #3b82f6;
+    --acc-purple: #8b5cf6;
+    --acc-neon: #00f2fe;
+    --glass: rgba(255, 255, 255, 0.04);
+    --border: rgba(255, 255, 255, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-deep);
+    color: #f8fafc;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* 🌌 VANGUARD 3D ABSTRACT GEOMETRIC 🌌 */
+.vanguard-3d-bg {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: -999 !important;
+    background: #020617 !important;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.bg-depth-gradient {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 100% 100%, rgba(236, 72, 153, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 100% 0%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 0% 100%, rgba(6, 182, 212, 0.3) 0%, transparent 50%);
+    filter: blur(40px);
+}
+
+.bg-3d-shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.15;
+}
+
+/* 🥎 ESFERAS 3D 🥎 */
+.sphere-shape {
+    background: radial-gradient(circle at 30% 30%, white, var(--shape-color) 40%, #000 100%);
+    box-shadow: inset -10px -10px 40px rgba(0, 0, 0, 0.8), 20px 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* 🧊 CUBOS 3D 🧊 */
+.cube-shape {
+    background: var(--shape-color);
+    border-radius: 300px 5px 300px 5px;
+    /* Cubo redondeado abstracto */
+    background: linear-gradient(135deg, white, var(--shape-color) 30%, #000 100%);
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+/* 📐 PRISMAS 3D 📐 */
+.prism-shape {
+    background: linear-gradient(to bottom right, white, var(--shape-color) 40%, #000 100%);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.bg-perspective-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.05) 1.5px, transparent 1.5px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1.5px, transparent 1.5px);
+    background-size: 100px 100px;
+    transform: perspective(1000px) rotateX(60deg) scale(2);
+    transform-origin: bottom;
+    opacity: 0.2;
+}
+
+.bg-stardust-particles {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+    opacity: 0.1;
+    mix-blend-mode: overlay;
+    animation: drift 200s linear infinite;
+}
+
+@keyframes drift {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 1000px 1000px;
+    }
+}
+
+/* ─── SIDE HUD (ACCIONES SIEMPRE VISIBLES) ─── */
+.side-hud {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    background: rgba(2, 4, 8, 0.85);
+    backdrop-filter: blur(20px);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+    z-index: 2000;
+}
+
+.hud-logo {
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, var(--acc-blue), var(--acc-purple));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 3rem;
+    animation: pulse 3s infinite;
+}
+
+.hud-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: center;
+}
+
+.hud-btn {
+    width: 50px;
+    height: 50px;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    font-size: 1.3rem;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hud-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    transform: scale(1.1) translateX(5px);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.btn-new {
+    border-color: var(--acc-neon);
+    color: var(--acc-neon);
+    animation: glow-neon 2s infinite alternate;
+}
+
+@keyframes glow-neon {
+    from {
+        box-shadow: 0 0 5px var(--acc-neon);
+    }
+
+    to {
+        box-shadow: 0 0 15px var(--acc-neon);
+    }
+}
+
+.hud-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ef4444;
+    font-size: 0.65rem;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-weight: 800;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.hud-separator {
+    width: 30px;
+    height: 1px;
+    background: var(--border);
+    margin: 0.5rem 0;
+}
+
+/* ─── MAIN CONTENT LAYOUT ─── */
+.main-content-layout {
+    margin-left: 80px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.app-header-compact {
+    padding: 2rem 3rem 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.app-title {
+    font-size: 2.2rem;
+    font-weight: 950;
+    letter-spacing: -1.5px;
+}
+
+.title-alt {
+    font-size: 0.8rem;
+    letter-spacing: 5px;
+    color: var(--acc-blue);
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.header-stats-row {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin-top: 5px;
+}
+
+/* ─── ARENA ONLINE ─── */
+.battle-online-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(20px);
+    z-index: 5000;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.battle-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+}
+
+.online-badge {
+    background: #ef4444;
+    color: white;
+    padding: 2px 10px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    margin-left: 10px;
+    animation: pulse 1s infinite;
+}
+
+.battle-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searching-ui {
+    text-align: center;
+    position: relative;
+}
+
+.radar-pulse {
+    width: 200px;
+    height: 200px;
+    border: 2px solid #00f2fe;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.btn-search-online {
+    padding: 20px 40px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-weight: 900;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+}
+
+.battle-arena-ui {
+    width: 100%;
+    max-width: 800px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+/* ⚔️ BATTLE VANGUARD ARENA 2.5D ⚔️ */
+.battle-arena-ui {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.battle-stage {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: radial-gradient(circle at center, rgba(59, 130, 246, 0.1), transparent 70%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+
+.my-poke-battle {
+    position: absolute;
+    bottom: 40px;
+    left: 10%;
+    width: 250px;
+    z-index: 10;
+}
+
+.op-poke-battle {
+    position: absolute;
+    top: 100px;
+    right: 15%;
+    width: 220px;
+    z-index: 5;
+}
+
+.shadow {
+    position: absolute;
+    width: 120px;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+    filter: blur(10px);
+    z-index: 1;
+}
+
+.shadow-my {
+    bottom: 45px;
+    left: 18%;
+}
+
+.shadow-op {
+    top: 250px;
+    right: 23%;
+}
+
+.hp-container {
+    width: 100%;
+    max-width: 350px;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.op-side {
+    top: 50px;
+    left: 50px;
+}
+
+.my-side {
+    bottom: 50px;
+    right: 50px;
+}
+
+.trainer-name {
+    font-size: 0.7rem;
+    font-weight: 950;
+    letter-spacing: 1px;
+    color: #94a3b8;
+}
+
+.btn-vanguard-action {
+    padding: 15px 40px;
+    background: linear-gradient(135deg, #3b82f6, #6366f1);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: 900;
+    cursor: pointer;
+    box-shadow: 0 10px 40px rgba(59, 130, 246, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-vanguard-action.locked {
+    background: #1e293b;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* Efecto Glitch */
+.glitch-text {
+    font-size: 1.5rem;
+    font-weight: 950;
+    color: #00f2fe;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: glitch 1s infinite alternate-reverse;
+}
+
+@keyframes glitch {
+    0% {
+        transform: skew(0deg);
+    }
+
+    100% {
+        transform: skew(10deg);
+        color: #ec4899;
+    }
+}
+
+.hp-bar {
+    margin: 1rem 0;
+    font-weight: 800;
+    font-size: 0.8rem;
+}
+
+.hp-track {
+    height: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hp-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #22c55e, #4ade80);
+    transition: width 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.battle-visuals {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 250px;
+    position: relative;
+}
+
+.my-poke {
+    width: 180px;
+    transform: scaleX(-1);
+}
+
+.op-poke {
+    width: 180px;
+}
+
+.btn-attack-online {
+    width: 100%;
+    padding: 20px;
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-weight: 950;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(239, 68, 68, 0.2);
+}
+
+.btn-attack-online.disabled {
+    background: #334155;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* SEARCH & SELECT WRAPPERS FIX */
+.search-wrapper,
+.select-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    flex: 1;
+    max-width: 600px;
+}
+
+.select-wrapper {
+    max-width: 250px;
+}
+
+.search-icon,
+.select-icon {
+    width: 18px !important;
+    height: 18px !important;
+    margin-left: 15px;
+    color: #64748b;
+}
+
+.search-input,
+.type-select {
+    width: 100%;
+    border: none;
+    background: transparent;
+    padding: 12px 15px;
+    color: white;
+    font-family: inherit;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.perf-stats {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+}
+
+.stat-pill {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    padding: 5px 12px;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #94a3b8;
+}
+
+.highlight {
+    border-color: #22c55e;
+    color: #4ade80;
+}
+
+/* ─── MODAL CASCARRÓN ─── */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: #0f172a;
+    padding: 3rem;
+    border-radius: 30px;
+    border: 1px solid var(--border);
+    max-width: 500px;
+    text-align: center;
+}
+
+/* ─── GRID ─── */
+.app-main {
+    padding: 2rem 3rem;
+}
+
+.pokemon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 800px) {
+    .side-hud {
+        width: 100%;
+        height: 70px;
+        bottom: 0;
+        top: auto;
+        flex-direction: row;
+        justify-content: center;
+        padding: 0;
+        border-right: none;
+        border-top: 1px solid var(--border);
+    }
+
+    .hud-logo {
+        display: none;
+    }
+
+    .hud-actions {
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .main-content-layout {
+        margin-left: 0;
+        margin-bottom: 70px;
+    }
+
+    .controls-hud {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1.5rem;
+    }
+}

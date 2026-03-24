@@ -1,0 +1,24 @@
+# Archivos excluidos por el usuario
+explicacion_codigo_pokedex.txt
+
+# Dependencias (ignoradas en ambos subdirectorios)
+node_modules/
+
+# Entorno y variables secretas
+.env
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Builds y temporales (Frontend Vite)
+dist/
+build/
+.tsbuildinfo
+
+# OS files
+.DS_Store
+Thumbs.db

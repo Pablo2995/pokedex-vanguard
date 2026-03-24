@@ -1,0 +1,34 @@
+{
+    "name": "frontend",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "@heroicons/react": "^2.2.0",
+        "axios": "^1.6.0",
+        "chart.js": "^4.5.1",
+        "cors": "^2.8.6",
+        "dotenv": "^17.3.1",
+        "express": "^5.2.1",
+        "framer-motion": "^12.35.2",
+        "joi": "^18.0.2",
+        "lucide-react": "^0.292.0",
+        "morgan": "^1.10.1",
+        "react": "^18.2.0",
+        "react-chartjs-2": "^5.3.1",
+        "react-dom": "^18.2.0",
+        "socket.io-client": "^4.8.3",
+        "sonner": "^2.0.7",
+        "zustand": "^5.0.11"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-react": "^4.2.0",
+        "vite": "^5.0.0"
+    }
+}

@@ -1,0 +1,206 @@
+/* ─── TeamBuilder.css (DB Version) ────────────────────────── */
+.team-builder-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+}
+
+.team-builder-content {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 450px;
+    max-width: 100%;
+    background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.98));
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.team-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.team-header h2 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin: 0;
+    background: linear-gradient(to right, #60a5fa, #3b82f6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.team-count {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 10px;
+    border-radius: 12px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #f87171;
+}
+
+.team-db-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Scrollbar */
+.team-db-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.team-db-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+.team-loading,
+.team-empty {
+    text-align: center;
+    color: #94a3b8;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.team-empty span {
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+.team-db-item {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 14px;
+    border-radius: 16px;
+    gap: 14px;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.team-db-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.db-item-img {
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.db-item-img img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.db-item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2px;
+}
+
+.db-item-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #f8fafc;
+    text-transform: capitalize;
+}
+
+.db-item-level {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #38bdf8;
+}
+
+.db-item-type {
+    font-size: 0.7rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+}
+
+.db-item-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    justify-content: stretch;
+    min-width: 90px;
+}
+
+.db-btn {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    color: white;
+}
+
+.db-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.db-btn:active {
+    transform: translateY(0);
+}
+
+.btn-entrenar {
+    background: linear-gradient(135deg, #eab308, #d97706);
+}
+
+.btn-liberar {
+    background: linear-gradient(135deg, #ef4444, #b91c1c);
+}
+
+@media (max-width: 500px) {
+    .team-builder-content {
+        width: 100%;
+    }
+}

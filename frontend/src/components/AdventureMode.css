@@ -1,0 +1,315 @@
+.adventure-mode-overlay {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(15, 23, 42, 0.98), rgba(2, 6, 23, 1));
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    backdrop-filter: blur(20px);
+}
+
+.adventure-content {
+    width: 100%;
+    max-width: 1000px;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+/* TOP BAR */
+.rpg-top {
+    padding: 1rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rpg-top b {
+    color: #38bdf8;
+    text-transform: uppercase;
+}
+
+.rpg-top button {
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* STAGE */
+.rpg-stage {
+    flex: 1;
+    position: relative;
+    background: linear-gradient(to bottom, #0ea5e955, #10b98155);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.exploring-view {
+    font-size: 1.5rem;
+    color: #94a3b8;
+    text-align: center;
+    animation: pulse 2s infinite;
+}
+
+.battle-arena-rpg {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/cubes.png'), linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+}
+
+.enemy-hud,
+.player-hud {
+    position: absolute;
+    width: 240px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+.enemy-hud {
+    top: 20px;
+    right: 20px;
+    text-align: right;
+}
+
+.player-hud {
+    bottom: 20px;
+    left: 20px;
+}
+
+.p-info {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #f8fafc;
+}
+
+.hp-bar,
+.sta-bar,
+.exp-bar {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 4px;
+}
+
+.hp-bar .fill {
+    background: #22c55e;
+    height: 100%;
+    transition: width 0.5s;
+}
+
+.sta-bar .fill {
+    background: #3b82f6;
+    height: 100%;
+    transition: width 0.5s;
+}
+
+.exp-bar .fill {
+    background: #f59e0b;
+    height: 100%;
+    transition: width 1s;
+}
+
+.status-tag {
+    font-size: 0.7rem;
+    color: #ef4444;
+    font-weight: bold;
+    margin-top: 4px;
+}
+
+.enemy-img,
+.player-img {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
+
+.enemy-img {
+    top: 60px;
+    left: 80px;
+}
+
+.player-img {
+    bottom: 40px;
+    right: 80px;
+}
+
+.enemy-img.alfa {
+    filter: drop-shadow(0 0 15px rgba(239, 68, 68, 0.8)) saturate(1.5);
+    animation: alfa-float 3s ease-in-out infinite;
+}
+
+/* LOG */
+.rpg-log {
+    height: 120px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 1rem;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column-reverse;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.log-line {
+    padding: 4px 0;
+    color: #cbd5e1;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem;
+}
+
+/* ACTIONS */
+.rpg-actions {
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.btn-rpg.exp {
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, #10b981, #059669);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 10px 20px -5px rgba(16, 185, 129, 0.4);
+}
+
+.battle-menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+}
+
+.battle-menu button {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.battle-menu button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.battle-menu button.charging {
+    background: rgba(245, 158, 11, 0.4);
+    animation: charge-shake 0.1s infinite;
+}
+
+/* TEAM DOCK */
+.rpg-team {
+    padding: 1rem;
+    display: flex;
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.5);
+    overflow-x: auto;
+}
+
+.team-p {
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid transparent;
+    cursor: pointer;
+    position: relative;
+    padding: 4px;
+}
+
+.team-p.active {
+    border-color: #38bdf8;
+    background: rgba(56, 189, 248, 0.1);
+}
+
+.mini-hp {
+    position: absolute;
+    bottom: 0;
+    left: 4px;
+    right: 4px;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
+}
+
+.mini-hp .fill {
+    background: #22c55e;
+    height: 100%;
+}
+
+/* ANIMATIONS */
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes alfa-float {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1.1);
+    }
+
+    50% {
+        transform: translateY(-10px) scale(1.15);
+    }
+}
+
+@keyframes charge-shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+}
